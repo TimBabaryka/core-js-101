@@ -27,11 +27,16 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  if (num % 5 === 0 && num % 3 === 0) {
+    return 'FizzBuzz';
+  } if (num % 3 === 0) {
+    return 'Fizz';
+  } if (num % 5 === 0) {
+    return 'Buzz';
+  }
+  return num;
 }
-
-
 /**
  * Returns the factorial of the specified integer n.
  *
@@ -43,11 +48,10 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  if (n === 0) return 1;
+  return n * getFactorial(n - 1);
 }
-
-
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
  *
@@ -164,8 +168,14 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  for (let i = 0; i < str.length; i += 1) {
+    const a = str.charAt(i);
+    if (str.indexOf(a) === i && str.indexOf(a, i + 1) === -1) {
+      return a;
+    }
+  }
+  return null;
 }
 
 
@@ -208,13 +218,13 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
 /**
- * Reverse the specified integer number (put all digits in reverse order)
+ * Reverse the specified integer number (put all digits in reverse order
  *
  * @param {number} num
  * @return {number}
@@ -225,11 +235,9 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return num.toString().split('').reverse().join('');
 }
-
-
 /**
  * Validates the CCN (credit card number) and return true if CCN is valid
  * and false otherwise.
@@ -298,7 +306,6 @@ function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n <= 10)
  * representation of specified number.
@@ -319,8 +326,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
